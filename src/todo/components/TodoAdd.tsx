@@ -6,7 +6,7 @@ const TodoAdd = () => {
   const [enteredText, setEnteredText] = useState("");
   const dispatch = useDispatch();
 
-  const addTodoItem = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const addTodoItem = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === "Enter") {
       dispatch(
         addTodo({ id: Date.now(), title: enteredText, completed: false })
@@ -16,16 +16,14 @@ const TodoAdd = () => {
   };
 
   return (
-    <>
-      <input
-        className="todo__new"
-        type="text"
-        value={enteredText}
-        placeholder="What needs to be done?"
-        onKeyDown={addTodoItem}
-        onChange={(e) => setEnteredText(e.target.value)}
-      />
-    </>
+    <input
+      className="todo__new"
+      type="text"
+      value={enteredText}
+      placeholder="What needs to be done?"
+      onKeyDown={addTodoItem}
+      onChange={(e) => setEnteredText(e.target.value)}
+    />
   );
 };
 

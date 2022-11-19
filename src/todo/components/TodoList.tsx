@@ -14,13 +14,11 @@ const TodoList = () => {
   }, [dispatch]);
 
   return (
-    <>
-      <ul className={`todo__list ${isLoading ? "loading" : ""}`}>
-        {todos.map(({ id, title, completed }: Todo) => (
-          <TodoItem id={id} title={title} completed={completed} key={id} />
-        ))}
-      </ul>
-    </>
+    <ul className={`todo__list ${isLoading ? "loading" : ""}`}>
+      {todos.map(({ id, title, completed }: Todo) => (
+        <TodoItem id={id} title={title} completed={completed} key={id} />
+      ))}
+    </ul>
   );
 };
 

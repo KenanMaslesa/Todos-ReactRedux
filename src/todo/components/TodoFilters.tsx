@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { State } from "../state/store";
-import { todoActions } from "../state/todo.reducer";
+import { todoActions } from "../state/todo.slice";
 
 const TodoFilters = () => {
   const todos = useSelector((state: State) => state.todo.todos);
@@ -15,7 +15,7 @@ const TodoFilters = () => {
         <li>Active</li>
         <li>Completed</li>
       </ul> */}
-      
+
       <button onClick={() => {
         dispatch(todoActions.clearCompletedTodos())
       }}>Clear completed</button>

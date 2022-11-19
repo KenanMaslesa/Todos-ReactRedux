@@ -5,28 +5,26 @@ import { deleteTodo, updateTodo } from "../state/todo.actions";
 const TodoItem = ({ id, title, completed }: Todo) => {
   const dispatch = useDispatch();
 
-  const updateTodoItem = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const updateTodoItem = (event: React.ChangeEvent<HTMLInputElement>): void => {
     dispatch(updateTodo({ id, title, completed: event.target.checked }, id));
   };
 
   return (
-    <>
-      <li className="todo__item">
-        <input
-          type="checkbox"
-          defaultChecked={completed}
-          onChange={updateTodoItem}
-        />
-        <label>{title}</label>
-        <button
-          onClick={() => {
-            dispatch(deleteTodo(id));
-          }}
-        >
-          x
-        </button>
-      </li>
-    </>
+    <li className="todo__item">
+      <input
+        type="checkbox"
+        defaultChecked={completed}
+        onChange={updateTodoItem}
+      />
+      <label>{title}</label>
+      <button
+        onClick={() => {
+          dispatch(deleteTodo(id));
+        }}
+      >
+        x
+      </button>
+    </li>
   );
 };
 

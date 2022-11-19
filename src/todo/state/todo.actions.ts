@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { todoActions } from "./todo.reducer";
+import { todoActions } from "./todo.slice";
 import { DispatchType, Todo } from "../models";
 
 import axios from "axios";
@@ -15,7 +15,6 @@ export const getTodos = (): any => {
       dispatch(todoActions.seIsLoading(false));
     } catch (error) {
       alert(error);
-      return [];
     }
   };
 };
@@ -29,7 +28,6 @@ export const addTodo = (todo: Todo): any => {
       dispatch(todoActions.seIsLoading(false));
     } catch (error) {
       alert(error);
-      return [];
     }
   };
 };
@@ -43,7 +41,6 @@ export const updateTodo = (todo: Todo, id: number): any => {
       dispatch(todoActions.seIsLoading(false));
     } catch (error) {
       alert(error);
-      return [];
     }
   };
 };
@@ -58,7 +55,6 @@ export const deleteTodo = (id: number): any => {
       });
     } catch (error) {
       alert(error);
-      return [];
     }
   };
 };
